@@ -1,6 +1,6 @@
 package lesson8.Homework;
 
-public class RaceTrack {
+public class RaceTrack implements Barrier {
     private String name;
     private final long distance;
 
@@ -17,8 +17,12 @@ public class RaceTrack {
         return distance;
     }
 
-    public boolean runDistance (Runnable r){
+    public boolean stepOver(JumpAndRun r){
 
         return r.doRun(distance);
+    }
+
+    public void printInfo(){
+        System.out.print(getName() + " дистанция " + getDistance() + ": ");
     }
 }

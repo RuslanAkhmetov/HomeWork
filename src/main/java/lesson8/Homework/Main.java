@@ -21,34 +21,21 @@ public class Main {
 
             }
         }
-
-        Wall[] walls =  new Wall[4];
-        RaceTrack[] raceTracks = new RaceTrack[4];
-        for (int i = 0; i < 4; i++) {
-            walls[i] = new Wall("Стена " + i, (float)(0.8 + 0.1 * i));
-            raceTracks[i] = new RaceTrack("Дорожка " + i, (1000 + 200 * i));
+        Barrier[] barrier = new Barrier[8];
+        /*Wall[] walls =  new Wall[4];
+        RaceTrack[] raceTracks = new RaceTrack[4];*/
+        for (int i = 0; i < barrier.length; i += 2) {
+            barrier[i] = new Wall("Стена " + i, (float)(0.8 + 0.1 * i));
+            barrier[i+1] = new RaceTrack("Дорожка " + i, (1000 + 200 * i));
         }
         for (int i = 0; i < part.length; i++) {
-            for (int j = 0; j < walls.length && j < raceTracks.length; j++) {
-               System.out.print(walls[j].getName() + " высота " + walls[j].getHeight() + ": ");
-               if (!walls[j].jumpOver( part[i]))
-                   break;
-                System.out.print(raceTracks[j].getName() + " дистанция " + raceTracks[j].getDistance() + ": ");
-                if (!raceTracks[j].runDistance( part[i])) {
+            for (int j = 0; j <barrier.length; j++) {
+               barrier[j].printInfo();
+               if (!barrier[j].stepOver( part[i])) {
                    break;
                }
             }
         }
-        /*Person person = new Person("Федор", 1.5F, 21200);
-        Horse horse = new Horse("Конь", 2.5F, 60000L);
-        Wall wall = new Wall("Препятствие 1", 2.0F);*/
-       /* System.out.print(wall.getName() + " высота " + wall.getHeight());
-        wall.jumpOver(person);
-        System.out.print(raceTrack.getName() + " дистанция " + raceTrack.getDistance());
-        raceTrack.runDistance(person);
-        System.out.print(wall.getName() + " высота " + wall.getHeight());
-        wall.jumpOver(horse);
-        System.out.print(raceTrack.getName() + " дистанция " + raceTrack.getDistance());
-        raceTrack.runDistance(horse);*/
+
     }
 }

@@ -1,6 +1,6 @@
 package lesson8.Homework;
 
-public class Wall {
+public class Wall implements Barrier{
     private String name;
     private final float height;
 
@@ -17,8 +17,11 @@ public class Wall {
         return height;
     }
 
-    public boolean jumpOver (Jumping p){
+    public boolean stepOver (JumpAndRun p){
         return p.doJump(height);
     }
 
+    public void printInfo () {
+        System.out.print(getName() + " высота " + getHeight() + ": ");
+    }
 }
