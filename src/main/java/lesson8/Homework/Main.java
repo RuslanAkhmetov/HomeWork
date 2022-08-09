@@ -28,14 +28,8 @@ public class Main {
             barrier[i] = new Wall("Стена " + i, (float)(0.8 + 0.1 * i));
             barrier[i+1] = new RaceTrack("Дорожка " + i, (1000 + 200 * i));
         }
-        for (int i = 0; i < part.length; i++) {
-            for (int j = 0; j <barrier.length; j++) {
-               barrier[j].printInfo();
-               if (!barrier[j].stepOver( part[i])) {
-                   break;
-               }
-            }
-        }
+        Competition competition = new Competition(part, barrier);
+        competition.start();
 
     }
 }
