@@ -1,6 +1,9 @@
 package lesson8.Homework;
 
-public class Robot implements JumpAndRun{// Jumping, Runnable{
+import lesson7.Cat;
+import org.jetbrains.annotations.NotNull;
+
+public class Robot implements JumpAndRun, Comparable<Robot>{// Jumping, Runnable{
     private String name;
 
     private final float maxHeight;
@@ -40,5 +43,16 @@ public class Robot implements JumpAndRun{// Jumping, Runnable{
         else
             System.out.println("Робот " + getName() + " не пробежал");
         return (getMaxDistance() >= distance);
+    }
+
+    public String toString(){
+        return name + " distance " + maxDistance;
+    }
+
+    @Override
+    public int compareTo(Robot o2) {
+        if(maxDistance < o2.getMaxDistance())
+            return -1;
+        else return 1;
     }
 }
