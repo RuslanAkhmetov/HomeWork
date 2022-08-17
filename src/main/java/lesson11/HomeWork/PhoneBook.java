@@ -3,12 +3,6 @@ package lesson11.HomeWork;
 import java.util.HashMap;
 import java.util.Map;
 
-/** 2 Написать простой класс Телефонный Справочник, который хранит в себе список фамилий и
-         * телефонных номеров. В этот телефонный справочник с помощью метода add() можно
-         * добавлять записи, а с помощью метода get() искать номер телефона по фамилии. Следует
-         * учесть, что под одной фамилией может быть несколько телефонов (в случае однофамильцев),
-         * тогда при запросе такой фамилии должны выводиться все телефоны.*/
-
 public class PhoneBook {
     private Map<String, String> recordMap;
 
@@ -21,14 +15,18 @@ public class PhoneBook {
     }
 
     public void add(String number, String surname){
-          String newNumber = "";
-          if (!recordMap.isEmpty() && recordMap.containsKey(surname))
-               newNumber = recordMap.get(surname) + ", ";
-          recordMap.put(surname, newNumber + number);
+        recordMap.put(number, surname);
     }
 
     public String get(String surname){
-        return recordMap.getOrDefault(surname, "");
+        String str = "";
+        if (recordMap.containsValue(surname)){
+        for (Map.Entry<String,String> entry: recordMap.entrySet()) {
+            if (entry.getValue().equals(surname))
+                str= str.length()==0 ? entry.getKey(): str + ", " + entry.getKey();
+        }}
+        //recordMap.forEach((k,v) -> System.out.println(k));//if (v == surname) str+= k); //.gegetOrDefault(surname, "");
+        return str;
     }
 
     public int size() {
