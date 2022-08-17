@@ -37,6 +37,18 @@ public class Main {
         System.out.println("Smith's phone: " + phoneBook.get("Smith"));
         System.out.println("Abbot's phone: " + phoneBook.get("Abbot"));
         System.out.println("Anybody's phone: " + phoneBook.get("Anybody"));
+
+        /*PhoneBookOld phoneBookOld = new PhoneBookOld();
+        phoneBookOld.add("+7911111111", "Smith");
+        phoneBookOld.add("+7911111112", "Smith");
+        phoneBookOld.add("+7911111113", "Smith");
+        phoneBookOld.add("+7911111114", "Pit");
+        phoneBookOld.add("+7911111115", "Pit");
+        phoneBookOld.add("+7911111116", "Abbot");
+        System.out.println(phoneBookOld);
+        System.out.println("Smith's phone: " + phoneBookOld.get("Smith"));
+        System.out.println("Abbot's phone: " + phoneBookOld.get("Abbot"));
+        System.out.println("Anybody's phone: " + phoneBookOld.get("Anybody"));*/
     }
 
     public static Long countWord(String word, String[] array){
