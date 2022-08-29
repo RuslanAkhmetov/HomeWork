@@ -15,7 +15,7 @@ public class Box <T extends Fruit>{
         if (fruits == null)    return 0.0;
         return fruits.length * T.getWeight();}
 
-    public boolean compare(Box <T> anotherBox){return getWeight() == anotherBox.getWeight();}
+    public boolean compare(Box <T> anotherBox){return anotherBox != null && getWeight() == anotherBox.getWeight();}
     public void reload(Box<? super T> newBox){
         newBox.setFruits( fruits);
         fruits = null;

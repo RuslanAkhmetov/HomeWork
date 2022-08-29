@@ -42,6 +42,16 @@ public class Main {
 
 
     public static <T> void replaceElement ( T[] array, int firstElement, int secondElement){
+        if (array == null){
+            throw new  IllegalArgumentException();
+        }
+
+        if(firstElement < 0 || secondElement < 0)
+            throw new IllegalArgumentException();
+        if(secondElement >= array.length || firstElement >= array.length)
+            throw new IllegalArgumentException();
+
+
         T temp = array[firstElement];
         array[firstElement] = array[secondElement];
         array[secondElement] = temp;
